@@ -71,6 +71,13 @@ function App() {
                 payload: element.id
               })
             }
+            editProduct = {
+              (param) => dispatch({
+                type: 'edit-product', 
+                id: element.id,
+                editedObj: param
+              })
+            }
           />
         )
       })
