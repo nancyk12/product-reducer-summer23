@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+const { v4: uuidv4 } = require('uuid');
 
 router.get('/', function(req, res, next) {
   res.send('Products index route');
@@ -9,39 +10,46 @@ router.get('/get-all-products', (req, res, next) => {
   res.send(
     [
         {
-            "id": 782330,
-            "title": "Doom: Eternal",
-            "publisher": "Bethesda",
-            "genre": "FPS",
-            "price": 39.99
+            id: uuidv4(),
+            title: "Hogwart's Legacy",
+            publisher: "Warner Bros.",
+            genre: "Adventure",
+            price: 59.99,
           },
           {
-            "id": 546560,
-            "title": "Half-Life: Alyx",
-            "publisher": "Valve",
-            "genre": "VR",
-            "price": 59.99
+            id: uuidv4(),
+            title: "Destiny 2",
+            publisher: "Bungie",
+            genre: "FPS",
+            price: 29.99
           },
           {
-            "id": 1145360,
-            "title": "Hades",
-            "publisher": "Supergiant",
-            "genre": "Rogue-like",
-            "price": 24.99
+            id: uuidv4(),
+            title: "The Last of Us",
+            publisher: "Sony",
+            genre: "Adventure",
+            price: 69.99
           },
           {
-            "id": 2050650,
-            "title": "Resident Evil 4",
-            "publisher": "Capcom",
-            "genre": "Horror",
-            "price": 59.99
+            id: uuidv4(),
+            title: "Total War: Warhammer III",
+            publisher: "Sega",
+            genre: "Strategy",
+            price: 49.99
           },
           {
-            "id": 2208920,
-            "title": "Assassins Creed: Valhalla",
-            "publisher": "Ubisoft",
-            "genre": "Third Person",
-            "price": 59.99
+            id: uuidv4(),
+            title: "Everything, Everywhere, All at Once",
+            publisher: "A24",
+            genre: "Action/Adventure",
+            price: 29.99
+          },
+          {
+            id: uuidv4(),
+            title: "Dune",
+            publisher: "Penguin Classics",
+            genre: "Action/Adventure",
+            price: 19.99
           }
     ]
    );
