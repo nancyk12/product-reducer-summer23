@@ -39,6 +39,33 @@ const ProductCard = (props) => {
                   value={editProduct.title}
                   onChange={onChangeHandler}
                 />
+                <br/>
+                <lable htmlFor="publisher">Publisher: </lable>
+                <input 
+                  type="text"
+                  name="publisher"
+                  value={editProduct.publisher}
+                  onChange={onChangeHandler}
+                />
+                <br/>
+                <lable htmlFor="genre">Genre: </lable>
+                <input 
+                  type="text"
+                  name="genre"
+                  value={editProduct.genre}
+                  onChange={onChangeHandler}
+                />
+                <br/>
+                <lable htmlFor="price">Price:  </lable>
+                <input 
+                  type='number'
+                  name='price'
+                  step='.01'
+                  min='0.01'
+                  value={editProduct.price}
+                  onChange={onChangeHandler}
+                />
+                <br/>
                 <button onClick={saveProduct}>Save Edits! </button>
                 {/* same as below */}
                 {/* <button onClick={() => {
