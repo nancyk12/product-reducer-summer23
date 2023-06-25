@@ -20,7 +20,11 @@ export default function productReducer(product, action) {
             // })
 
             let editedArray = product.map(element => element.id === action.editedObj.id ? action.editedObj : element);
-            return editedArray;    
+            return editedArray;  
+        case 'add-product':
+            
+            let addArray; //temp
+            return addArray;
             
 
         default:

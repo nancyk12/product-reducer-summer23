@@ -7,7 +7,7 @@ const ProductCard = (props) => {
 
     const [editProduct, setEditProduct] = useState({
         id: props.id,
-        title: "I'm edited",
+        title: props.titile,
         publisher: props.publisher,
         genre: props.genre,
         price: props.price
@@ -16,7 +16,8 @@ const ProductCard = (props) => {
     const onChangeHandler = (e) => {
         setEditProduct({
             ...editProduct,
-            [e.target.name]: e.target.value // title: target.value
+            [e.target.name]: Number.parseFloat(e.target.value).toFixed(2) // title: target.value
+            // [e.target.name]: e.target.value.toLocaleString(undefined, { style: 'currency', currency: 'USD' })
         })
     }
 
