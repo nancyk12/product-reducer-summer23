@@ -31,12 +31,14 @@ export default function productReducer(product, action) {
                 genre: "",
                 price: 0
             }
+            //inserts object into the index=0 of the state array
             let addArray= [
                 newProduct,
                 ...product,    
             ]; //temp
-            return addArray;
-            
+            return addArray; // return to useReduer, which sets the state
+        case 'get-products':
+            return action.payload // set the payload data to the product state
 
         default:
             alert('No matching types!');
