@@ -1,3 +1,5 @@
+import {v4 as uuidv4} from 'uuid';
+
 export default function productReducer(product, action) {
     switch (action.type) {
         case 'delete-product':
@@ -22,8 +24,17 @@ export default function productReducer(product, action) {
             let editedArray = product.map(element => element.id === action.editedObj.id ? action.editedObj : element);
             return editedArray;  
         case 'add-product':
-            
-            let addArray; //temp
+            let newProduct = {
+                id: uuidv4(),
+                title: "",
+                publisher: "",
+                genre: "",
+                price: 0
+            }
+            let addArray= [
+                newProduct,
+                ...product,    
+            ]; //temp
             return addArray;
             
 

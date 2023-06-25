@@ -3,28 +3,34 @@ import React, { useState } from 'react'
 
 const ProductCard = (props) => {
 
-    const [editBtn, setEditBtn] = useState(false);
+    const [editBtn, setEditBtn] = useState(props.price === 0 ? true : false);
 
     const [editProduct, setEditProduct] = useState({
         id: props.id,
-        title: props.titile,
+        title: props.title,
         publisher: props.publisher,
         genre: props.genre,
         price: props.price
     })
 
     const onChangeHandler = (e) => {
-        setEditProduct({
-            ...editProduct,
-            [e.target.name]: Number.parseFloat(e.target.value).toFixed(2) // title: target.value
-            // [e.target.name]: e.target.value.toLocaleString(undefined, { style: 'currency', currency: 'USD' })
-        })
-    }
-
-    const saveProduct = () => {
-        props.editProduct(editProduct);
-        setEditBtn(false);
-    }
+        (e.target.name === 'price') ?
+            setEditProduct({
+              ...editProduct,
+              [e.target.name]: Number.parseFloat(e.target.value).toFixed(2)  
+              // [e.target.name]: e.target.value.toLocaleString(undefined, { style: "currency", currency: "USD" })
+            })
+            :
+            setEditProduct({
+              ...editProduct,
+              [e.target.name]: e.target.value // title: e.target.value
+            })
+      }
+    
+      const saveProduct = () => {
+        props.editProduct(editProduct)
+        setEditBtn(false)
+      }
 
   return (
     <div className='product-card'>
